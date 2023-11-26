@@ -3,20 +3,29 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: white;
-  height: 100%;
 }
 
 //layout styles
 
 .search-bar input {
   padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #f7f7f9;
+  outline: none;
+  border: none;
 }
 
 .wrapper-layout {
   display: flex;
   width: 100%;
+  height: 100%;
 }
 
 .layout {
@@ -26,6 +35,7 @@ body {
   align-items: center;
   padding: 0 70px;
   width: 100%;
+  height: 100%;
 }
 
 .top-menu {
@@ -33,32 +43,77 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 49px;
+  margin-bottom: 32px;
 }
 
 .right-boxes {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .box-1,
 .box-2 {
-  background-color: rgb(162, 200, 200);
+  background-color: rgb(212, 205, 205);
+  border: 1px solid black;
 }
-
+//navigation styles
 .nav {
-  background-color: rgb(218, 212, 212);
+  background-color: #f7f7f9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  align-items: center;
-  width: 20%;
-  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 264px;
+  width: 100%;
+  height: 100vh;
+  padding: 40px 24px 27px 10px;
 }
 
-//navigation styles
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0 14px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.favorites {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.user-data .name {
+  color: #0a041c;
+}
+
+.user-data .email {
+  color: #9896a1;
+}
 
 .active {
   color: red;
@@ -68,4 +123,125 @@ body {
 
 #detail {
   padding: 0 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+//components
+.boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 500px;
+  max-height: 336px;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f9;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.title-and-dots {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.balance-amount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f9;
+  border-radius: 16px;
+  max-width: 1072px;
+  width: 100%;
+  padding: 32px;
+}
+
+.main-box-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid #ebebf3;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.main-box-nav a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #9896a1;
+  cursor: pointer;
+  line-height: 36px;
+}
+
+.main-box-nav a.active {
+  color: #0a041c;
+  border-bottom: 4px solid #7445fb;
+}
+
+//table
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.table-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+}
+
+.table-item-element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.table-item-element .label {
+  color: #9896a1;
+}
+
+.table-item-element .content {
+  color: #0a041c;
+}
+
+.table-item-element .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-item-element .buttons button {
+  max-width: 55px;
+  max-height: 40px;
+  border-radius: 10px;
 }

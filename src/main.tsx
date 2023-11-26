@@ -12,6 +12,7 @@ import {
   Wallets,
 } from "./pages/index.tsx";
 import "./App.scss";
+import { Table } from "./components/table/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,45 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <NotFound />,
     children: [
-      { path: "/overview", element: <Overview /> },
+      {
+        path: "/overview",
+        element: <Overview />,
+        children: [
+          { path: "/overview/summary", element: <Table /> },
+          {
+            path: "/overview/table",
+            element: (
+              <>
+                <h1>Table</h1>
+              </>
+            ),
+          },
+          {
+            path: "/overview/charts",
+            element: (
+              <>
+                <h1>Charts</h1>
+              </>
+            ),
+          },
+          {
+            path: "/overview/reporting",
+            element: (
+              <>
+                <h1>Reporting</h1>
+              </>
+            ),
+          },
+          {
+            path: "/overview/analysis",
+            element: (
+              <>
+                <h1>Analysis</h1>
+              </>
+            ),
+          },
+        ],
+      },
       { path: "/bundles", element: <Bundles /> },
       { path: "/wallets", element: <Wallets /> },
       { path: "/buysell", element: <BuySell /> },
