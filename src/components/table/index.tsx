@@ -27,7 +27,7 @@ export const Table = () => {
   useEffect(() => {
     const data = fetchCoins();
     // console.log(data);
-  });
+  }, []);
 
   return (
     <div className="table">

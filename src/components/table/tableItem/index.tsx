@@ -1,4 +1,6 @@
 import { TableItemElement } from "../tableItemElement";
+import { Button } from "../../button";
+
 export const TableItem = (props) => {
   return (
     <div className="table-item">
@@ -8,8 +10,8 @@ export const TableItem = (props) => {
 
       <div>chart</div>
       <div className="buttons">
-        <button> Sell </button>
-        <button> Buy</button>
+        <Button theme="light" />
+        <Button theme="dark" />
       </div>
     </div>
   );
