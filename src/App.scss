@@ -6,21 +6,21 @@
 
 //devices
 
-@mixin breakpoint($point) {
-  @if $point == laptopBig {
-    @media (max-width: 1400px) {
-      @content;
-    }
-  } @else if $point == laptop {
-    @media (max-width: 1200px) {
-      @content;
-    }
-  } @else if $point == tablet {
-    @media (max-width: 768px) {
-      @content;
-    }
-  }
-}
+// @mixin breakpoint($point) {
+//   @if $point == laptopBig {
+//     @media (max-width: 1400px) {
+//       @content;
+//     }
+//   } @else if $point == laptop {
+//     @media (max-width: 1200px) {
+//       @content;
+//     }
+//   } @else if $point == tablet {
+//     @media (max-width: 768px) {
+//       @content;
+//     }
+//   }
+// }
 
 * {
   margin: 0;
@@ -357,8 +357,6 @@ body {
   background-color: #f7f7f9;
   border-radius: 16px;
   padding: 32px;
-  overflow: hidden;
-  flex-grow: 1;
 }
 
 .main-box-nav {
@@ -424,11 +422,22 @@ body {
   justify-content: center;
   gap: 6px;
   font-size: 14px;
-  flex-shrink: 1;
+  flex-grow:1;
 }
 
 .table-item-element.small {
   font-size: 12px;
+}
+
+.change-chart{
+max-width:148px;
+max-height: 32px;
+width:100%;
+height:100%;
+}
+
+.change-chart canvas{
+  width:100%;
 }
 
 .image-wrapper {
@@ -463,7 +472,15 @@ body {
 }
 
 .table-item-element .content {
+  font-weight: 600;
   color: #0a041c;
+}
+.content.positive-change {
+  color: #2dc78f;
+}
+
+.content.negative-change {
+  color: #ea4d4d;
 }
 
 .buttons {

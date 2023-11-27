@@ -1,14 +1,13 @@
 import axios from "axios";
 import { API_KEY } from "./variables";
 
-const fetchCoins = async (ids: string[], vs_currencies: string[]) => {
+const fetchCoinsValueChange = async (coin_name: string) => {
   const options = {
     method: "GET",
-    url: "https://coingecko.p.rapidapi.com/simple/price",
+    url: `https://coingecko.p.rapidapi.com/coins/${coin_name}/market_chart`,
     params: {
-      ids: ids.join(),
-      vs_currencies: vs_currencies.join(),
-      include_24hr_change: true,
+      vs_currency: "usd",
+      days: "1",
     },
     headers: {
       "X-RapidAPI-Key": API_KEY,
@@ -18,10 +17,11 @@ const fetchCoins = async (ids: string[], vs_currencies: string[]) => {
 
   try {
     const response = await axios.request(options);
+
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export default fetchCoins;
+export default fetchCoinsValueChange;

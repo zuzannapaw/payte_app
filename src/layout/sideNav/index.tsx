@@ -33,7 +33,12 @@ export const SideNav = () => {
       </div>
       <div className="sidenav">
         {sideNavData.map((data) => (
-          <SideNavItem label={data.label} path={data.path} icon={data.icon} />
+          <SideNavItem
+            label={data.label}
+            path={data.path}
+            icon={data.icon}
+            key={data.label}
+          />
         ))}
       </div>
       <div className="favorites-and-user">

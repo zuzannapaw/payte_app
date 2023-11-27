@@ -16,7 +16,8 @@ import {
   Reporting,
   Wallets,
 } from "./pages/index.tsx";
-import "./App.scss";
+
+import './App.scss'
 import { Table } from "./components/table/index.tsx";
 
 const router = createBrowserRouter([
