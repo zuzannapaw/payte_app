@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { ThreeDotsIcon } from "../icon/iconStore/ThreeDotsIcon";
 
 export const ThreeDotsDropdown = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -10,7 +9,7 @@ export const ThreeDotsDropdown = () => {
   };
   return (
     <div className="three-dots" onClick={threeDotsClickHandler}>
-      <FontAwesomeIcon icon={faEllipsis} style={{ color: "#9896A1" }} />
+      <ThreeDotsIcon color="#9896A1" />
       {isClicked && (
         <div className="dropdown">
           <ul>

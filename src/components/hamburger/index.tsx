@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { MenuIcon } from "../icon/iconStore/MenuIcon";
 
 export const Hamburger = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -10,7 +9,7 @@ export const Hamburger = () => {
   };
   return (
     <div className="hamburger" onClick={hamburgerClickHandler}>
-      {<FontAwesomeIcon icon={faBars} style={{color:"#9896A1"}} />}
+      <MenuIcon color="#9896A1" />
       {isClicked && (
         <div className="hamburger-drawer">
           <ul>

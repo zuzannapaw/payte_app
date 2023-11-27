@@ -5,7 +5,7 @@ export const TableItem = (props) => {
   return (
     <div className="table-item">
       {props.itemData.map((data) => {
-        return <TableItemElement label={data.label} content={data.content} />;
+        return <TableItemElement label={data.label} content={data.content} image={data.image} />;
       })}
 
       <div>chart</div>

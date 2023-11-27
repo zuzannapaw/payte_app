@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom";
 import { Root } from "./routes/root.tsx";
+
 import {
   Bundles,
   BuySell,
@@ -19,6 +24,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <NotFound />,
+    // action: async () => redirect("/overview/summary"),
     children: [
       {
         path: "/overview",
