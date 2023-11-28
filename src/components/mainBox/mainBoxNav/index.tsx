@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { FC } from "react";
 
-export const MainBoxNav = () => {
+export const MainBoxNav: FC = (): JSX.Element => {
   return (
     <div className="main-box-nav">
       <NavLink to="/overview/summary">Summary</NavLink>

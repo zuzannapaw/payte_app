@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { MenuIcon } from "../icon/iconStore/MenuIcon";
+import { MenuIcon } from "../../components/icon/iconStore/MenuIcon";
+import { FC } from "react";
 
-export const Hamburger = () => {
-  const [isClicked, setIsClicked] = useState(false);
+export const Hamburger: FC = (): JSX.Element => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const hamburgerClickHandler = () => {
+  const hamburgerClickHandler = (): void => {
     setIsClicked((prevState) => !prevState);
   };
+
   return (
     <div className="hamburger" onClick={hamburgerClickHandler}>
       <MenuIcon color="#9896A1" />

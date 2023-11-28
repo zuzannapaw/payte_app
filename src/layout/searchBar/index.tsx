@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { SearchIcon } from "../components/icon/iconStore/SearchIcon";
+import { SearchIcon } from "../../components/icon/iconStore/SearchIcon";
+import { FC } from "react";
 
-export const SearchBar = () => {
+export const SearchBar:FC = (): JSX.Element => {
   const [content, setContent] = useState("");
 
-  const fillinInput = (event) => {
+  const fillinInput = (event):void => {
     setContent(event.target.value);
-    console.log(content);
   };
 
   return (

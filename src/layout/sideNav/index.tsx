@@ -1,6 +1,6 @@
-import { ThreeDotsDropdown } from "../../components/threeDotsdropdown";
-import { SideNavItem } from "./sideNavItem";
-import { FavoritesNav } from "./favoritesNav";
+import { ThreeDotsDropdown } from "../../components/threeDotsDropdown";
+import { SideNavItem } from "./sideNavItem/sideNavItem";
+import { FavoritesNav } from "./favoritesNav/favoritesNav";
 import { UserContext } from "../../store/userContext";
 import { useContext } from "react";
 import { HomeIcon } from "../../components/icon/iconStore/HomeIcon";
@@ -10,6 +10,7 @@ import { CheckIcon } from "../../components/icon/iconStore/CheckIcon";
 import { FlagIcon } from "../../components/icon/iconStore/FlagIcon";
 import { AtomIcon } from "../../components/icon/iconStore/AtomIcon";
 import logo from "../../assets/img/logo.svg";
+import { FC } from "react";
 
 const sideNavData = [
   { label: "Overview", path: "/overview", icon: <HomeIcon color="#9896A1" /> },
@@ -23,7 +24,7 @@ const sideNavData = [
   },
   { label: "Community", path: "community", icon: <AtomIcon color="#9896A1" /> },
 ];
-export const SideNav = () => {
+export const SideNav: FC = (): JSX.Element => {
   const user = useContext(UserContext);
   return (
     <nav className="nav">
@@ -53,7 +54,9 @@ export const SideNav = () => {
             </p>
             <p className="email">{user?.email}</p>
           </div>
-          <ThreeDotsDropdown />
+          <ThreeDotsDropdown
+            options={[{ name: "Settings" }, { name: "Profile" }]}
+          />
         </div>
       </div>
     </nav>

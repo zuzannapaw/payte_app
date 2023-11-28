@@ -1,7 +1,10 @@
 import axios from "axios";
 import { API_KEY } from "./variables";
+import { ChangeChartProps } from "../components/charts/changeChart/types";
 
-const fetchCoinsValueChange = async (coin_name: string) => {
+const fetchCoinsValueChange = async (
+  coin_name: string
+): Promise<ChangeChartProps | undefined> => {
   const options = {
     method: "GET",
     url: `https://coingecko.p.rapidapi.com/coins/${coin_name}/market_chart`,
@@ -18,7 +21,7 @@ const fetchCoinsValueChange = async (coin_name: string) => {
   try {
     const response = await axios.request(options);
 
-    return response.data;
+    return response.data as ChangeChartProps;
   } catch (error) {
     console.error(error);
   }

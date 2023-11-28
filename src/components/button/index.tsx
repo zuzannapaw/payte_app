@@ -1,4 +1,7 @@
-export const Button = (props) => {
+import { ButtonProps } from "./types";
+import { FC } from "react";
+
+export const Button: FC<ButtonProps> = (props: ButtonProps): JSX.Element => {
   let label;
   if (props.label) {
     label = props.label;

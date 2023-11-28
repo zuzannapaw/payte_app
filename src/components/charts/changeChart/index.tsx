@@ -1,12 +1,17 @@
 import { useRef } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
+import { ChangeChartProps } from "./types";
 
-export const ChangeChart = (props): JSX.Element => {
+export const ChangeChart = (
+  props: ChangeChartProps
+): JSX.Element => {
   const ref = useRef();
 
-  const labelsArray = props.data.prices.map((data) => data[0]);
-  const dataArray = props.data.prices.map((data) => data[1]);
+  const labelsArray = props ? props.prices?.map((data) => data[0]) : [];
+  const dataArray = props
+    ? props?.prices.map((data) => data[1])
+    : [];
 
   const data = {
     labels: labelsArray,
@@ -39,6 +44,7 @@ export const ChangeChart = (props): JSX.Element => {
           },
         },
         responsive: true,
+        maintainAspectRatio: false,
       }}
     />
   );

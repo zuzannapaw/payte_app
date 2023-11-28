@@ -1,12 +1,17 @@
-import { ThreeDotsDropdown } from "../threeDotsdropdown";
-export const Box = (props) => {
+import { ThreeDotsDropdown } from "../threeDotsDropdown";
+import { BoxProps } from "./types";
+import { FC } from "react";
+
+export const Box: FC<BoxProps> = (props: BoxProps): JSX.Element => {
   return (
     <div className="box">
       <div className="title-and-dots">
         <p>{props.title}</p>
-        <ThreeDotsDropdown/>
+        <ThreeDotsDropdown
+          options={[{ name: "More" }, { name: "Help" }, { name: "Settings" }]}
+        />
       </div>
-     {props.children}
+      {props.children}
     </div>
   );
 };

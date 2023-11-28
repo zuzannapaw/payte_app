@@ -1,7 +1,8 @@
 import { useRouteError } from "react-router-dom";
+import { RouteErrorType } from "./types";
 
 export const NotFound = () => {
-  const error = useRouteError();
+  const error = useRouteError() as RouteErrorType;
   return (
     <>
       <h1>Oops!</h1>

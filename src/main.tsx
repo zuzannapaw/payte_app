@@ -1,12 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
-import { Root } from "./routes/root.tsx";
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Root } from "./pages/root.tsx";
 import {
   Bundles,
   BuySell,
@@ -16,22 +11,20 @@ import {
   Reporting,
   Wallets,
 } from "./pages/index.tsx";
-
-import './App.scss'
-import { Table } from "./components/table/index.tsx";
+import "./App.scss";
+import { Summary } from "./components/summary/index.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <NotFound />,
-    // action: async () => redirect("/overview/summary"),
     children: [
       {
         path: "/overview",
         element: <Overview />,
         children: [
-          { path: "/overview/summary", element: <Table /> },
+          { path: "/overview/summary", element: <Summary /> },
           {
             path: "/overview/table",
             element: (

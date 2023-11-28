@@ -1,22 +1,25 @@
 import { useState } from "react";
 import { ThreeDotsIcon } from "../icon/iconStore/ThreeDotsIcon";
+import { ThreeDotsDropdownProps } from "./types";
+import { FC } from "react";
 
-export const ThreeDotsDropdown = () => {
-  const [isClicked, setIsClicked] = useState(false);
+export const ThreeDotsDropdown: FC<ThreeDotsDropdownProps> = (
+  props: ThreeDotsDropdownProps
+): JSX.Element => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const threeDotsClickHandler = () => {
+  const threeDotsClickHandler = ():void => {
     setIsClicked((prevState) => !prevState);
   };
+
   return (
     <div className="three-dots" onClick={threeDotsClickHandler}>
       <ThreeDotsIcon color="#9896A1" />
       {isClicked && (
         <div className="dropdown">
-          <ul>
-            <li>option 1</li>
-            <li>option 2</li>
-            <li>option 3</li>
-          </ul>
+          {props.options.map((option) => (
+            <p>{option.name}</p>
+          ))}
         </div>
       )}
     </div>

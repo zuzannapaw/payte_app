@@ -1,17 +1,20 @@
-import { TableItemElement } from "../tableItemElement";
+import { CoinInfo } from "../coinInfo";
 import { Button } from "../../button";
-import { ChangeChart } from "../../charts/ChangeChart";
+import { ChangeChart } from "../../charts/changeChart";
 import fetchCoinsValueChange from "../../../utils/fetchCoinsValueChange";
 import { useEffect, useState } from "react";
+import { SummaryItemProps } from "./types";
+import { ChangeChartProps } from "../../charts/changeChart/types";
 
-export const TableItem = (props) => {
-  const [coinsValueChange, setCoinsValueChange] = useState(null);
+export const SummaryItem = (props: SummaryItemProps) => {
+  const [coinsValueChange, setCoinsValueChange] = useState<ChangeChartProps>();
 
+  //fetch function
   const getCoinsValueChangeData = async () => {
-    const coinName = props.itemData[0].content.toLowerCase();
-
-    const chartData = await fetchCoinsValueChange(coinName);
-
+    const coinName = (props.itemData[0].content as string).toLowerCase();
+    const chartData: ChangeChartProps | undefined = await fetchCoinsValueChange(
+      coinName
+    );
     setCoinsValueChange(chartData);
   };
 
@@ -23,7 +26,7 @@ export const TableItem = (props) => {
     <div className="table-item">
       {props.itemData.map((data) => {
         return (
-          <TableItemElement
+          <CoinInfo
             label={data.label}
             content={data.content}
             image={data.image}
@@ -32,7 +35,7 @@ export const TableItem = (props) => {
         );
       })}
       <div className="change-chart">
-        <ChangeChart data={coinsValueChange} />
+        {coinsValueChange && <ChangeChart {...coinsValueChange} />}
       </div>
       <div className="buttons">
         <Button theme="light" />

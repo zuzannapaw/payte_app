@@ -1,11 +1,15 @@
-import { TableItem } from "./tableItem";
+import { SummaryItem } from "./summaryItem";
 import fetchCoins from "../../utils/fetchCoins";
 import { useEffect, useState } from "react";
 import bitcoin from "../../assets/img/bitcoin.png";
 import ethereum from "../../assets/img/ethereum.png";
 import cardano from "../../assets/img/cardano.png";
+import { FC } from "react";
+import { CoinInfoProps } from "./coinInfo/types";
 
-const tableData = [
+type CoinInfoDataType = CoinInfoProps
+
+const coinInfoData: CoinInfoDataType[][] = [
   [
     { label: "BTC", content: "Bitcoin", image: bitcoin },
     { label: "Price", content: 0 },
@@ -23,23 +27,21 @@ const tableData = [
   ],
 ];
 
-export const Table = () => {
-  const [coins, setCoins] = useState(tableData);
+export const Summary: FC = (): JSX.Element => {
+  const [coins, setCoins] = useState<CoinInfoDataType[][]>(coinInfoData);
   const getCoinsData = async () => {
-    const names = tableData.map((el) =>
+    const names = coinInfoData.map((el) =>
       (el[0].content as string).toLowerCase()
     );
     const data = await fetchCoins(names, ["usd"]);
-    tableData.map((cryptoCurr) => {
-      const gecoData =
-        data[(cryptoCurr[0].content as string).toLowerCase()];
-      cryptoCurr[1].content = gecoData.usd;
-      cryptoCurr[2].content = gecoData.usd_24h_change.toFixed(2);
+    coinInfoData.map((coinInfo: CoinInfoDataType[]) => {
+      const gecoData = data[(coinInfo[0].content as string).toLowerCase()];
+      coinInfo[1].content = gecoData.usd;
+      coinInfo[2].content = gecoData.usd_24h_change.toFixed(2);
 
-      return cryptoCurr;
+      return coinInfo;
     });
-    setCoins(tableData)
-    console.log(tableData)
+    setCoins(coinInfoData);
   };
 
   useEffect(() => {
@@ -48,8 +50,8 @@ export const Table = () => {
 
   return (
     <div className="table">
-      {coins.map((data) => {
-        return <TableItem itemData={data} />;
+      {coins.map((data: CoinInfoDataType[]) => {
+        return <SummaryItem itemData={data} />;
       })}
     </div>
   );
