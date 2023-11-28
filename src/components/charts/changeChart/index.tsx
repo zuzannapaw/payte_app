@@ -29,7 +29,12 @@ export const ChangeChart = (props: ChangeChartProps): JSX.Element => {
       ref={ref}
       data={data}
       options={{
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            enabled: false,
+          },
+        },
         scales: {
           x: {
             display: false,

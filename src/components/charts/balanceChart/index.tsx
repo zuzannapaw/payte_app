@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
+import { getKNotation } from "../../../utils/helpers";
 
 export const BalanceChart = (props): JSX.Element => {
   const ref = useRef();
@@ -62,7 +63,11 @@ export const BalanceChart = (props): JSX.Element => {
               display: false, //this will remove only the label
             },
           },
-          y: { beginAtZero: true },
+          y: {
+            border: { dash: [1, 2] },
+            beginAtZero: true,
+            ticks: { callback: (value) => getKNotation(value as number) },
+          },
         },
       }}
     />
