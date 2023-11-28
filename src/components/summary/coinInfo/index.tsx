@@ -1,3 +1,5 @@
+import { ArrowDownIcon } from "../../icon/iconStore/ArrowDownIcon";
+import { ArrowUpIcon } from "../../icon/iconStore/ArrowUpIcon";
 import { CoinInfoProps } from "./types";
 import { FC } from "react";
 
@@ -18,11 +20,23 @@ export const CoinInfo: FC<CoinInfoProps> = (
     content = props.content;
   }
 
+  let displayedIcon: React.ReactNode;
+
+  if (props.label === "Change") {
+    if ((props.content as number) > 0) {
+      displayedIcon = <ArrowUpIcon />;
+    } else if ((props.content as number) < 0) {
+      displayedIcon = <ArrowDownIcon />;
+    } else {
+      undefined;
+    }
+  }
+
   const changeColorClass: string =
     (props.content as number) > 0 ? "positive-change" : "negative-change";
 
   return (
-    <div style={{ display: "flex", flexBasis: "25%" }}>
+    <div className="coin-info-wrapper">
       {props.image && (
         <div className={`image-wrapper ${props.variantSmall && "small"}`}>
           <img src={props.image}></img>
@@ -38,6 +52,7 @@ export const CoinInfo: FC<CoinInfoProps> = (
           }`}
         >
           {content}
+          {displayedIcon}
         </p>
       </div>
     </div>

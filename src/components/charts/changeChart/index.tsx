@@ -3,15 +3,11 @@ import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import { ChangeChartProps } from "./types";
 
-export const ChangeChart = (
-  props: ChangeChartProps
-): JSX.Element => {
+export const ChangeChart = (props: ChangeChartProps): JSX.Element => {
   const ref = useRef();
 
   const labelsArray = props ? props.prices?.map((data) => data[0]) : [];
-  const dataArray = props
-    ? props?.prices.map((data) => data[1])
-    : [];
+  const dataArray = props ? props?.prices.map((data) => data[1]) : [];
 
   const data = {
     labels: labelsArray,
@@ -19,7 +15,11 @@ export const ChangeChart = (
       {
         data: dataArray,
         fill: false,
-        borderColor: "#742774",
+        borderColor: props?.change
+          ? props?.change > 0
+            ? "#18CB80"
+            : "#EA4D4D"
+          : "black",
       },
     ],
   };

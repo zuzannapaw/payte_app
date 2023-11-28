@@ -29,6 +29,9 @@
 
 #root {
   height: 100%;
+  max-width: 1680px;
+  max-height: 1080px;
+  margin: auto;
 }
 
 html,
@@ -126,6 +129,13 @@ body {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  border-radius: 50%;
+  padding: 3px;
+  transition: 0.3s;
+}
+
+.three-dots:hover {
+  background-color: #e9e9ed;
 }
 
 .hamburger-drawer,
@@ -147,9 +157,32 @@ body {
 }
 
 .dropdown {
-  top: 70px;
-  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
   cursor: pointer;
+  font-size: 14px;
+  left: 50%;
+  padding: 40px 45px 40px 10px;
+  background-color: #e9e9ed;
+  border-radius: 16px;
+  gap:10px;
+}
+
+.dropdown.top {
+  top: -120px;
+}
+
+.dropdown.bottom {
+  top: 40px;
+}
+
+.dropdown > a{
+  transition: 0.3s;
+}
+.dropdown > a:hover {
+  font-weight: 600;
 }
 
 .right-boxes {
@@ -170,7 +203,6 @@ body {
   gap: 12px;
   max-width: 264px;
   width: 100%;
-  max-height: 100vh;
 }
 
 .sidenav {
@@ -238,6 +270,15 @@ body {
   padding: 0 24px 27px 24px;
 }
 
+.favorites-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .favorites {
   display: flex;
   justify-content: space-between;
@@ -247,6 +288,13 @@ body {
   font-weight: 600;
   color: #9896a1;
   margin-top: 24px;
+}
+
+.favorites-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .user {
@@ -357,6 +405,7 @@ body {
   background-color: #f7f7f9;
   border-radius: 16px;
   padding: 32px;
+  flex-grow: 1;
 }
 
 .main-box-nav {
@@ -422,22 +471,26 @@ body {
   justify-content: center;
   gap: 6px;
   font-size: 14px;
-  flex-grow:1;
+  flex-grow: 1;
+}
+
+//this should be change for coin-info
+
+.coin-info-wrapper {
+  display: flex;
+  flex-basis: 10%;
+  justify-content: center;
 }
 
 .table-item-element.small {
   font-size: 12px;
 }
 
-.change-chart{
-max-width:148px;
-max-height: 32px;
-width:100%;
-height:100%;
-}
-
-.change-chart canvas{
-  width:100%;
+.change-chart {
+  max-width: 148px;
+  max-height: 32px;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .image-wrapper {
@@ -474,6 +527,10 @@ height:100%;
 .table-item-element .content {
   font-weight: 600;
   color: #0a041c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 .content.positive-change {
   color: #2dc78f;
@@ -488,6 +545,7 @@ height:100%;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  flex-basis: 20%;
 }
 
 .button {

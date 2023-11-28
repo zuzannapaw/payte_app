@@ -3,11 +3,33 @@ import { Box } from "../../components/box";
 import { MainBox } from "../../components/mainBox";
 import { Button } from "../../components/button";
 import { User, UserContext } from "../../store/userContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FC } from "react";
+import fetchCoinsValueChange from "../../utils/fetchCoinsValueChange";
+import { ChangeChartProps } from "../../components/charts/changeChart/types";
+import { BalanceChart } from "../../components/charts/balanceChart";
 
 export const Overview: FC = (): JSX.Element => {
   const user: User | undefined = useContext(UserContext);
+
+  const [monthlyChange, setMonthlyChange] =
+    useState<ChangeChartProps>(undefined);
+
+  //fetch function
+  const getCoinsMonthlyData = async () => {
+    const coinName = "bitcoin";
+    const chartData: ChangeChartProps | undefined = await fetchCoinsValueChange(
+      coinName,
+      "60",
+      "daily"
+    );
+    setMonthlyChange(chartData);
+  };
+
+  console.log(monthlyChange)
+  useEffect(() => {
+    getCoinsMonthlyData();
+  }, []);
 
   return (
     <>
@@ -29,7 +51,7 @@ export const Overview: FC = (): JSX.Element => {
           </div>
         </Box>
         <Box title="Summary">
-          <h2>Place for chart</h2>
+          {monthlyChange && <BalanceChart {...monthlyChange}/>}
         </Box>
       </div>
       <MainBox>

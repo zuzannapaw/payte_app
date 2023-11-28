@@ -15,6 +15,8 @@ const notify = (): void => {
   toast.info("Info Notification !", {
     position: toast.POSITION.BOTTOM_CENTER,
     toastId: "1",
+    progressStyle: { backgroundColor: "#7445fb" },
+    icon: "🚀",
   });
 };
 
@@ -59,7 +61,9 @@ export const Root: FC = (): JSX.Element => {
             </div>
           </div>
         </UserContext.Provider>
-        <ToastContainer />
+        <ToastContainer
+          toastStyle={{ fontFamily: "SfProDisplay", color: "#0a041c" }}
+        />
       </div>
     </NotificationContext.Provider>
   );

@@ -56,6 +56,7 @@ export const SideNav: FC = (): JSX.Element => {
           </div>
           <ThreeDotsDropdown
             options={[{ name: "Settings" }, { name: "Profile" }]}
+            dropdownPosition="top"
           />
         </div>
       </div>

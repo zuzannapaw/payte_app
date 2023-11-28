@@ -13,7 +13,8 @@ export const SummaryItem = (props: SummaryItemProps) => {
   const getCoinsValueChangeData = async () => {
     const coinName = (props.itemData[0].content as string).toLowerCase();
     const chartData: ChangeChartProps | undefined = await fetchCoinsValueChange(
-      coinName
+      coinName,
+      "1"
     );
     setCoinsValueChange(chartData);
   };
@@ -22,6 +23,10 @@ export const SummaryItem = (props: SummaryItemProps) => {
     getCoinsValueChangeData();
   }, []);
 
+  const change: number = props.itemData.find((item) => item.label === "Change")
+    ?.content as number;
+
+  console.log(change);
   return (
     <div className="table-item">
       {props.itemData.map((data) => {
@@ -35,7 +40,9 @@ export const SummaryItem = (props: SummaryItemProps) => {
         );
       })}
       <div className="change-chart">
-        {coinsValueChange && <ChangeChart {...coinsValueChange} />}
+        {coinsValueChange && (
+          <ChangeChart {...coinsValueChange} change={change} />
+        )}
       </div>
       <div className="buttons">
         <Button theme="light" />

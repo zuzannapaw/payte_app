@@ -9,6 +9,7 @@ export const Box: FC<BoxProps> = (props: BoxProps): JSX.Element => {
         <p>{props.title}</p>
         <ThreeDotsDropdown
           options={[{ name: "More" }, { name: "Help" }, { name: "Settings" }]}
+          dropdownPosition="bottom"
         />
       </div>
       {props.children}

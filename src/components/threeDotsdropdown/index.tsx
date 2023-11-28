@@ -12,13 +12,14 @@ export const ThreeDotsDropdown: FC<ThreeDotsDropdownProps> = (
     setIsClicked((prevState) => !prevState);
   };
 
+
   return (
     <div className="three-dots" onClick={threeDotsClickHandler}>
       <ThreeDotsIcon color="#9896A1" />
       {isClicked && (
-        <div className="dropdown">
+        <div className={`dropdown ${props.dropdownPosition}`}>
           {props.options.map((option) => (
-            <p>{option.name}</p>
+            <a>{option.name}</a>
           ))}
         </div>
       )}
