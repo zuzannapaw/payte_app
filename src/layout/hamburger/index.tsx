@@ -14,15 +14,20 @@ export const Hamburger: FC = (): JSX.Element => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const hamburgerClickHandler = (): void => {
-    setIsClicked((prevState) => !prevState);
+    setIsClicked(!isClicked);
   };
 
+  const hamburgerCloseHandler = (): void => {
+    setIsClicked(false);
+  };
+
+  console.log(isClicked)
   return (
     <div className="hamburger" onClick={hamburgerClickHandler}>
       <MenuIcon color="#9896A1" />
       {isClicked && (
         <div className="hamburger-drawer">
-          <p onClick={hamburgerClickHandler}>X</p>
+          <button onClick={hamburgerCloseHandler}>X</button>
         </div>
       )}
     </div>

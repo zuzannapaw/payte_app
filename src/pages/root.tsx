@@ -45,7 +45,7 @@ const user: User = {
     style: "currency",
     currency: "USD",
     currencyDisplay: "narrowSymbol",
-  }).format(2143223),
+  }).format(21432.23),
 };
 
 /**

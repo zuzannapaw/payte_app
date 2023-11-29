@@ -55,7 +55,9 @@ export const Overview: FC = (): JSX.Element => {
           </div>
         </Box>
         <Box title="Summary">
-          {monthlyChange && <BalanceChart {...monthlyChange} />}
+          <div className="canvas-wrapper">
+            {monthlyChange && <BalanceChart {...monthlyChange} />}
+          </div>
         </Box>
       </div>
       <MainBox>
