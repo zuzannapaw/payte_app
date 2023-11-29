@@ -7,7 +7,7 @@ import cardano from "../../assets/img/cardano.png";
 import { FC } from "react";
 import { CoinInfoProps } from "./coinInfo/types";
 
-type CoinInfoDataType = CoinInfoProps
+type CoinInfoDataType = CoinInfoProps;
 
 const coinInfoData: CoinInfoDataType[][] = [
   [
@@ -26,6 +26,14 @@ const coinInfoData: CoinInfoDataType[][] = [
     { label: "Change", content: 0 },
   ],
 ];
+
+/**
+ * @name Summary
+ * @description A Summary component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <Summary/>
+ */
 
 export const Summary: FC = (): JSX.Element => {
   const [coins, setCoins] = useState<CoinInfoDataType[][]>(coinInfoData);
@@ -51,7 +59,12 @@ export const Summary: FC = (): JSX.Element => {
   return (
     <div className="table">
       {coins.map((data: CoinInfoDataType[]) => {
-        return <SummaryItem itemData={data} />;
+        return (
+          <SummaryItem
+            itemData={data}
+            key={Math.floor(Math.random() * 1000) + 1}
+          />
+        );
       })}
     </div>
   );

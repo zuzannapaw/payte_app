@@ -5,7 +5,6 @@
 }
 
 //devices
-
 @mixin breakpoint($point) {
   @if $point == laptopBig {
     @media (max-width: 1400px) {
@@ -105,7 +104,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   background-color: #f7f7f9;
   max-width: 48px;
   max-height: 48px;
@@ -115,6 +113,10 @@ body {
   height: 100%;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.notifications {
+  position: relative;
 }
 
 .hamburger:hover,
@@ -149,7 +151,6 @@ body {
   background-color: #e9e9ed;
 }
 
-.hamburger-drawer,
 .dropdown {
   display: flex;
   justify-content: center;
@@ -163,8 +164,20 @@ body {
 }
 
 .hamburger-drawer {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   top: 0;
-  left: 50px;
+  right: 0;
+  background-color: #d5d5da;
+  width: 10%;
+  height: 100%;
+}
+
+.hamburger-drawer p {
+  width: 30px;
+  height: 30px;
 }
 
 .dropdown {
@@ -299,9 +312,12 @@ body {
   align-items: center;
   width: 100%;
   margin-bottom: 26px;
-  font-weight: 600;
-  color: #9896a1;
   margin-top: 24px;
+}
+
+.favorites p {
+  color: #9896a1;
+  font-weight: 600;
 }
 
 .favorites-items {
@@ -354,7 +370,7 @@ body {
 //detail
 
 #detail {
-  padding: 0 70px;
+  padding: 0 60px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -422,8 +438,14 @@ body {
 }
 
 .vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: 18px;
   font-weight: 500;
+  color: #2dc78f;
+  font-weight: 600;
 }
 
 .main-box {
@@ -433,7 +455,7 @@ body {
   border-radius: 16px;
   padding: 32px;
   flex-grow: 1;
-  height:250px;
+  height: 250px;
   overflow-y: scroll;
 }
 

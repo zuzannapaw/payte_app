@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import { getKNotation } from "../../../utils/helpers";
+import { BalanceChartProps } from "./types";
 
-export const BalanceChart = (props): JSX.Element => {
+export const BalanceChart: FC<BalanceChartProps> = (
+  props: BalanceChartProps
+): JSX.Element => {
   const ref = useRef();
 
   const datesArray = props ? props?.prices : [];
@@ -60,7 +63,7 @@ export const BalanceChart = (props): JSX.Element => {
           x: {
             grid: { display: false },
             ticks: {
-              display: false, //this will remove only the label
+              display: false,
             },
           },
           y: {

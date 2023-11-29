@@ -1,8 +1,8 @@
 import { ThreeDotsDropdown } from "../../components/threeDotsDropdown";
-import { SideNavItem } from "./sideNavItem/sideNavItem";
-import { FavoritesNav } from "./favoritesNav/favoritesNav";
+import { SideNavItem } from "./sideNavItem";
+import { FavoritesNav } from "./favoritesNav";
 import { UserContext } from "../../store/userContext";
-import { useContext } from "react";
+import { useContext, FC } from "react";
 import { HomeIcon } from "../../components/icon/iconStore/HomeIcon";
 import { BankIcon } from "../../components/icon/iconStore/BankIcon";
 import { WalletIcon } from "../../components/icon/iconStore/WalletIcon";
@@ -10,9 +10,9 @@ import { CheckIcon } from "../../components/icon/iconStore/CheckIcon";
 import { FlagIcon } from "../../components/icon/iconStore/FlagIcon";
 import { AtomIcon } from "../../components/icon/iconStore/AtomIcon";
 import logo from "../../assets/img/logo.svg";
-import { FC } from "react";
+import { SideNavItemProps } from "./sideNavItem/types";
 
-const sideNavData = [
+const sideNavData: SideNavItemProps[] = [
   { label: "Overview", path: "/overview", icon: <HomeIcon color="#9896A1" /> },
   { label: "Buy/Sell", path: "/buysell", icon: <BankIcon color="#9896A1" /> },
   { label: "Wallets", path: "/wallets", icon: <WalletIcon color="#9896A1" /> },
@@ -24,6 +24,15 @@ const sideNavData = [
   },
   { label: "Community", path: "community", icon: <AtomIcon color="#9896A1" /> },
 ];
+
+/**
+ * @name SideNav
+ * @description A SideNav component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <SideNav/>
+ */
+
 export const SideNav: FC = (): JSX.Element => {
   const user = useContext(UserContext);
   return (

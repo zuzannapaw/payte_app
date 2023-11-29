@@ -3,6 +3,14 @@ import { NotificationContext } from "../../store/notificationContext";
 import { BellIcon } from "../../components/icon/iconStore/BellIcon";
 import { FC } from "react";
 
+/**
+ * @name Notifications
+ * @description A Notifications component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <Notifications/>
+ */
+
 export const Notifications: FC = (): JSX.Element => {
   const notification = useContext(NotificationContext);
   return (

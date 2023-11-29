@@ -6,6 +6,15 @@ import { useEffect, useState } from "react";
 import { SummaryItemProps } from "./types";
 import { ChangeChartProps } from "../../charts/changeChart/types";
 
+/**
+ * @name SummaryItem
+ * @description A SummaryItem component
+ * @param {SummaryItemProps} props The props of the component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <SummaryItem itemData={[{label:"Label" content:"Content" image:"./image.png"}]} />
+ */
+
 export const SummaryItem = (props: SummaryItemProps) => {
   const [coinsValueChange, setCoinsValueChange] = useState<ChangeChartProps>();
 
@@ -35,7 +44,7 @@ export const SummaryItem = (props: SummaryItemProps) => {
             label={data.label}
             content={data.content}
             image={data.image}
-            key={data.image}
+            key={Math.floor(Math.random() * 1000) + 1}
           />
         );
       })}

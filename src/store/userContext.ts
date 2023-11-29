@@ -1,12 +1,19 @@
 import React from "react";
 
+type FavoritesType = {
+  label: string;
+  content: string;
+  image: string;
+  variantSmall: boolean;
+}[];
+
 export type User = {
-  favorites: any;
+  favorites: FavoritesType;
   name: string;
   surname: string;
   email: string;
   avatar: string;
-  balance: number;
+  balance: string;
 };
 
 export const UserContext = React.createContext<undefined | User>(undefined);

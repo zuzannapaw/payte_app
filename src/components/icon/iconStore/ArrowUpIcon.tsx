@@ -1,4 +1,5 @@
-export const ArrowUpIcon = () => {
+import { FC } from "react";
+export const ArrowUpIcon: FC = (): JSX.Element => {
   return (
     <svg
       width="16"

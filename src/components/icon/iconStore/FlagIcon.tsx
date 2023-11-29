@@ -1,4 +1,7 @@
-export const FlagIcon = (props) => {
+import { FC } from "react";
+import { IconProps } from "../types";
+
+export const FlagIcon: FC<IconProps> = (props: IconProps): JSX.Element => {
   return (
     <svg
       width="24"

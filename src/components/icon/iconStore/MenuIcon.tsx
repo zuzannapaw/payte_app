@@ -1,4 +1,7 @@
-export const MenuIcon = (props) => {
+import { FC } from "react";
+import { IconProps } from "../types";
+
+export const MenuIcon: FC<IconProps> = (props: IconProps): JSX.Element => {
   return (
     <svg
       width="24"

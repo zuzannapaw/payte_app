@@ -1,9 +1,20 @@
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import { ChangeChartProps } from "./types";
 
-export const ChangeChart = (props: ChangeChartProps): JSX.Element => {
+/**
+ * @name ChangeChart
+ * @description A ChangeChart component
+ * @param {ChangeChartProps} props The props of the component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <ChangeChart {...data} change=2.36/>
+ */
+
+export const ChangeChart: FC<ChangeChartProps> = (
+  props: ChangeChartProps
+): JSX.Element => {
   const ref = useRef();
 
   const labelsArray = props ? props.prices?.map((data) => data[0]) : [];

@@ -3,6 +3,15 @@ import { ArrowUpIcon } from "../../icon/iconStore/ArrowUpIcon";
 import { CoinInfoProps } from "./types";
 import { FC } from "react";
 
+/**
+ * @name CoinInfo
+ * @description A CoinInfo component
+ * @param {CoinInfoProps} props The props of the component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <CoinInfo label="Label" content="Content" image="./image.png" variantSmall={true}/>
+ */
+
 export const CoinInfo: FC<CoinInfoProps> = (
   props: CoinInfoProps
 ): JSX.Element => {

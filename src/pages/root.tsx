@@ -10,6 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../store/userContext";
 import userAvatar from "../assets/img/businessman.png";
 import { User } from "../store/userContext";
+import bitcoin from "../assets/img/bitcoin.png";
+import ethereum from "../assets/img/ethereum.png";
 
 const notify = (): void => {
   toast.info("Info Notification !", {
@@ -21,13 +23,38 @@ const notify = (): void => {
 };
 
 const user: User = {
-  favorites: {},
+  favorites: [
+    {
+      label: "BTC",
+      content: "Bitcoin",
+      image: bitcoin,
+      variantSmall: true,
+    },
+    {
+      label: "ETH",
+      content: "Ethereum",
+      image: ethereum,
+      variantSmall: true,
+    },
+  ],
   name: "Marc",
   surname: "Webber",
   email: "marc@riot.com",
   avatar: userAvatar,
-  balance: 243,
+  balance: new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    currencyDisplay: "narrowSymbol",
+  }).format(2143223),
 };
+
+/**
+ * @name Root
+ * @description A Root component
+ * @returns {JSX.Element} The JSX element
+ * @example
+ * <Root/>
+ */
 
 export const Root: FC = (): JSX.Element => {
   const [notification, setNotification] = useState<boolean>(false);
@@ -39,7 +66,7 @@ export const Root: FC = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setTimeout(notificationHandler, 5000);
+    setTimeout(notificationHandler, 30000);
     navigate("./overview/summary");
   }, []);
 

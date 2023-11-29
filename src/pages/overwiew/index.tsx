@@ -8,6 +8,7 @@ import { FC } from "react";
 import fetchCoinsValueChange from "../../utils/fetchCoinsValueChange";
 import { ChangeChartProps } from "../../components/charts/changeChart/types";
 import { BalanceChart } from "../../components/charts/balanceChart";
+import { ArrowUpIcon } from "../../components/icon/iconStore/ArrowUpIcon";
 
 export const Overview: FC = (): JSX.Element => {
   const user: User | undefined = useContext(UserContext);
@@ -26,7 +27,7 @@ export const Overview: FC = (): JSX.Element => {
     setMonthlyChange(chartData);
   };
 
-  console.log(monthlyChange)
+  console.log(monthlyChange);
   useEffect(() => {
     getCoinsMonthlyData();
   }, []);
@@ -37,7 +38,10 @@ export const Overview: FC = (): JSX.Element => {
         <Box title="Current Balance">
           <div className="balance-amount">
             <h2 className="amount">{user?.balance}</h2>
-            <div className="vs">12% vs last month</div>
+            <div className="vs">
+              <ArrowUpIcon />
+              <p>12% vs last month </p>{" "}
+            </div>
             <div
               className="buttons"
               style={{
@@ -51,7 +55,7 @@ export const Overview: FC = (): JSX.Element => {
           </div>
         </Box>
         <Box title="Summary">
-          {monthlyChange && <BalanceChart {...monthlyChange}/>}
+          {monthlyChange && <BalanceChart {...monthlyChange} />}
         </Box>
       </div>
       <MainBox>
